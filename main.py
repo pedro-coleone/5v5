@@ -88,10 +88,7 @@ if __name__ == "__main__":
 
         if ref_data["game_on"]:
             # Se o modo de jogo estiver em "Game on"
-            if mray:
-                strategy.coach1()
-            else:
-                strategy.coach2()
+            strategy.coach1()
 
         elif ref_data["foul"] == 1 and ref_data["yellow"] == (not mray):
             #Detectando penalti defensivo

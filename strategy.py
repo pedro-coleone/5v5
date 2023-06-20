@@ -19,7 +19,7 @@ class Strategy:
         self.penaltyOffensive = False
         self.quadrant = 0
 
-    def coach2(self):
+    def coach1(self):
         """"Picks a strategy depending on the status of the field"""
         # For the time being, the only statuses considered are which side of the field the ball is in
         if self.penaltyDefensive == True:
@@ -31,32 +31,12 @@ class Strategy:
                 if self.ball.xPos < 135:
                     self.wallStgDef()
                 else:
-                    self.breakWallStgAtt()
+                    self.wallStgAtt()
             else:
                 if self.ball.xPos > 115:
                     self.wallStgDef()
                 else:
-                    self.breakWallStgAtt()
-
-    def coach1(self):
-        """"Picks a strategy depending on the status of the field"""
-        # For the time being, the only statuses considered are which side of the field the ball is in
-        if self.penaltyDefensive == True:
-            self.penaltyModeDefensive()
-        elif self.penaltyOffensive == True:
-            self.penaltyModeOffensiveSpin()
-        else:
-            if not self.mray:
-                if self.ball.xPos < 125:
-                    self.wallStgDef()
-                else:
-                    self.basicStgAtt()
-            else:
-                if self.ball.xPos > 125:
-                    self.wallStgDef()
-                else:
-                    self.basicStgAtt()
-
+                    self.wallStgAtt()
 
     def basicStgDef(self):
         """Basic original strategy"""
