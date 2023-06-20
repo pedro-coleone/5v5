@@ -48,7 +48,7 @@ class Strategy:
         else:
             if not self.mray:
                 if self.ball.xPos < 125:
-                    self.wallStgAtt()
+                    self.wallStgDef()
                 else:
                     self.basicStgAtt()
             else:
@@ -142,7 +142,7 @@ class Strategy:
         action.defenderWall(self.robot1, self.robot2,self.ball, leftSide=not self.mray)
 
     def breakWallStgAtt(self):
-        if self.mray and self.ball.xPos < 70 and self.ball.yPos < 30:
+        if self.mray and self.ball.xPos < 70 and self.ball.yPos < 30 or self.quadrant == 3:
             self.quadrant = 3
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -151,7 +151,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)
-        elif self.mray and self.ball.xPos < 70 and self.ball.yPos > 150:
+        if self.mray and self.ball.xPos < 70 and self.ball.yPos > 150 or self.quadrant == 2:
             self.quadrant = 2
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -160,7 +160,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)   
-        elif not self.mray and self.ball.xPos > 180 and self.ball.yPos < 30:
+        if not self.mray and self.ball.xPos > 180 and self.ball.yPos < 30 or self.quadrant == 4:
             self.quadrant = 4
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -169,7 +169,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)
-        elif not self.mray and self.ball.xPos > 180 and self.ball.yPos > 150:
+        if not self.mray and self.ball.xPos > 180 and self.ball.yPos > 150 or self.quadrant == 1:
             self.quadrant = 1
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -178,7 +178,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)
-        elif self.mray and self.ball.xPos > 70 or not self.mray and self.ball.xPos < 180:
+        if self.mray and self.ball.xPos > 90 or not self.mray and self.ball.xPos < 140 or self.quadrant == 0:
             self.quadrant = 0
             action.followLeader(self.robot0, self.robot3, self.robot4, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)

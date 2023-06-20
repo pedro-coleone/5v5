@@ -47,7 +47,7 @@ def replacement_fouls(replacement, ref_data, mray):
                 entidade1 = Entity(x=85, y=30,a=0, index=1)
                 entidade2 = Entity(x=85, y=150,a=0, index=2)
                 entidade3 = Entity(x=155, y=150,a=0, index=3)
-                entidade4 = Entity(x=195, y=80,a=0, index=4)
+                entidade4 = Entity(x=145, y=80,a=0, index=4)
             elif ref_data["quad"] == 2:
                 entidade0 = Entity(x=22, y=90,a=0, index=0)
                 entidade1 = Entity(x=40, y=125,a=135, index=1)
@@ -65,7 +65,7 @@ def replacement_fouls(replacement, ref_data, mray):
                 entidade1 = Entity(x=85, y=30,a=0, index=1)
                 entidade2 = Entity(x=85, y=150,a=0, index=2)
                 entidade3 = Entity(x=155, y=30,a=0, index=3)
-                entidade4 = Entity(x=195, y=100,a=0, index=4)
+                entidade4 = Entity(x=145, y=100,a=0, index=4)
             replacement.place_all([entidade0, entidade1, entidade2, entidade3, entidade4])
 
         elif ref_data["foul"] == 4:
@@ -123,13 +123,13 @@ def replacement_fouls(replacement, ref_data, mray):
                 entidade1 = Entity(x=165, y=30,a=180, index=1)
                 entidade2 = Entity(x=165, y=150,a=180, index=2)
                 entidade3 = Entity(x=95, y=150,a=180, index=3)
-                entidade4 = Entity(x=55, y=80,a=180, index=4)
+                entidade4 = Entity(x=105, y=80,a=180, index=4)
             elif ref_data["quad"] == 3:
                 entidade0 = Entity(x=228, y=90,a=0, index=0)
                 entidade1 = Entity(x=165, y=30,a=180, index=1)
                 entidade2 = Entity(x=165, y=150,a=180, index=2)
                 entidade3 = Entity(x=95, y=30,a=0, index=3)
-                entidade4 = Entity(x=55, y=100,a=0, index=4)
+                entidade4 = Entity(x=105, y=100,a=0, index=4)
             elif ref_data["quad"] == 4:
                 entidade0 = Entity(x=228, y=90,a=0, index=0)
                 entidade1 = Entity(x=210, y=55,a=315, index=1)
