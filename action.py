@@ -562,7 +562,7 @@ def breakWall(robot, ball, quadrant, friend1=None, friend2=None, enemy1=None, en
         arrivalTheta = arctan2(ytarget - 90, xtarget - 235)
         robot.obst.update2(robot, ball, friend1, friend2, enemy1, enemy2, enemy3, enemy4, enemy5)
         
-    print("Bloquenado defesa no quadrante " + str(quadrant))
+    print("~Bloqueando defesa no quadrante " + str(quadrant))
     robot.target.update(xtarget, ytarget, arrivalTheta)
     v,w=univecController(robot,robot.target,True, robot.obst, doubleFace=True, stopWhenArrive = True)
     robot.simSetVel(v,w)

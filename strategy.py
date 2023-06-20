@@ -55,7 +55,7 @@ class Strategy:
                 if self.ball.xPos > 125:
                     self.wallStgDef()
                 else:
-                    self.wallStgAtt()
+                    self.basicStgAtt()
 
 
     def basicStgDef(self):
@@ -142,7 +142,7 @@ class Strategy:
         action.defenderWall(self.robot1, self.robot2,self.ball, leftSide=not self.mray)
 
     def breakWallStgAtt(self):
-        if self.mray and self.ball.xPos < 70 and self.ball.yPos < 30 or self.quadrant == 3:
+        if self.mray and self.ball.xPos < 70 and self.ball.yPos < 30 and self.quadrant != 2 or self.quadrant == 3:
             self.quadrant = 3
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -151,7 +151,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)
-        if self.mray and self.ball.xPos < 70 and self.ball.yPos > 150 or self.quadrant == 2:
+        if self.mray and self.ball.xPos < 70 and self.ball.yPos > 150 and self.quadrant != 3 or self.quadrant == 2:
             self.quadrant = 2
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -160,7 +160,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)   
-        if not self.mray and self.ball.xPos > 180 and self.ball.yPos < 30 or self.quadrant == 4:
+        if not self.mray and self.ball.xPos > 180 and self.ball.yPos < 30 and self.quadrant != 1 or self.quadrant == 4:
             self.quadrant = 4
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
@@ -169,7 +169,7 @@ class Strategy:
             action.breakWall(self.robot4, self.ball, self.quadrant,self.robot0, self.robot1, self.robotEnemy0, self.robotEnemy1,
                                                                                  self.robotEnemy2, self.robotEnemy3, self.robotEnemy4,
                                                                                  leftSide=not self.mray)
-        if not self.mray and self.ball.xPos > 180 and self.ball.yPos > 150 or self.quadrant == 1:
+        if not self.mray and self.ball.xPos > 180 and self.ball.yPos > 150 and self.quadrant != 4 or self.quadrant == 1:
             self.quadrant = 1
             action.followLeader(self.robot0, self.robot2, self.robot3, self.ball, self.robotEnemy0, self.robotEnemy1,
                                                                 self.robotEnemy2, self.robotEnemy3, self.robotEnemy4)
