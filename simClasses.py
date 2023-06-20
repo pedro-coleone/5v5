@@ -188,10 +188,16 @@ class Ball:
         self.yPos=0
         self.vx=0
         self.vy=0
-        self.pastPose=zeros(4).reshape(2,2) #? Stores the last 3 positions (x,y) => updated on self.simGetPose()
+        self.pastPose=zeros(6).reshape(3,2) #? Stores the last 3 positions (x,y) => updated on self.simGetPose()
 
     #% This method gets position of the ball in FIRASim
-    def set_simulator_data(self, data_ball):
+    def simGetPose(self, data_ball):
+        newPose = zeros(6).reshape(3,2)
+        newPose[0] = [self.xPos, self.yPos]
+        newPose[1] = self.pastPose[0]
+        newPose[2] = self.pastPose[1]
+        self.pastPose = newPose
+    
         self.xPos = data_ball.x + data_ball.vx*100*8/60
         self.yPos = data_ball.y + data_ball.vy*100*8/60
 
@@ -209,12 +215,10 @@ class Ball:
         self.vx = data_ball.vx
         self.vy = data_ball.vy
 
+
     #% This method print a little log on console
     def showInfo(self):
         print('xPos: {:.2f} | yPos: {:.2f}'.format(self.xPos,self.yPos))
-    
-    def get_coordinates(self):
-        return self.xPos, self.yPos
 
 #% Class to create the robots in game
 class Robot:
@@ -266,7 +270,7 @@ class Robot:
             return False
 
     #% This method gets both position and orientation of the robot in FIRASim
-    def set_simulator_data(self, data_robot):
+    def simGetPose(self, data_robot):
         self.xPos = data_robot.x
         self.yPos = data_robot.y
         self.vx = data_robot.vx
